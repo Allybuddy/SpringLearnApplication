@@ -1,7 +1,8 @@
 package com.example.springLearn.controller;
 
+import com.example.springLearn.dto.StudentDto;
 import com.example.springLearn.entity.StudentEntity;
-import com.example.springLearn.service.Service;
+import com.example.springLearn.service.ServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,17 +17,23 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Controller {
 
-    private final Service service;
+    private final ServiceImpl service;
 
     @GetMapping(value = "/getData")
-    public ResponseEntity<List<StudentEntity>> getData(){
-        List<StudentEntity> data = service.getData();
+    public ResponseEntity<List<StudentDto>> getData(){
+        List<StudentDto> data = service.getData();
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
     @PostMapping(value = "/putData")
     public ResponseEntity<StudentEntity> putData(@RequestBody StudentEntity dataInput){
         StudentEntity data = service.putData(dataInput);
+        return new ResponseEntity<>(data, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/test")
+    public ResponseEntity<List<StudentDto>> test(){
+        List<StudentDto> data = service.test();
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
 }
