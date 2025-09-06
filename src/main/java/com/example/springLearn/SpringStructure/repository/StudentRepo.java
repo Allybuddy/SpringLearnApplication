@@ -1,6 +1,6 @@
-package com.example.springLearn.repository;
+package com.example.springLearn.SpringStructure.repository;
 
-import com.example.springLearn.entity.StudentEntity;
+import com.example.springLearn.SpringStructure.entity.StudentEntity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

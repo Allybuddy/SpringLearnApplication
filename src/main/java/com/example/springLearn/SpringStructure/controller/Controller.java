@@ -1,8 +1,8 @@
-package com.example.springLearn.controller;
+package com.example.springLearn.SpringStructure.controller;
 
-import com.example.springLearn.dto.StudentDto;
-import com.example.springLearn.entity.StudentEntity;
-import com.example.springLearn.service.ServiceImpl;
+import com.example.springLearn.SpringStructure.dto.StudentDto;
+import com.example.springLearn.SpringStructure.entity.StudentEntity;
+import com.example.springLearn.SpringStructure.service.ServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

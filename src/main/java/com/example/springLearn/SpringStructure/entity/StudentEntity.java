@@ -1,4 +1,4 @@
-package com.example.springLearn.entity;
+package com.example.springLearn.SpringStructure.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

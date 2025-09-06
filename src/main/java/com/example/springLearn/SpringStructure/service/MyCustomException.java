@@ -1,4 +1,4 @@
-package com.example.springLearn.service;
+package com.example.springLearn.SpringStructure.service;
 
 import lombok.Getter;
 import lombok.Setter;

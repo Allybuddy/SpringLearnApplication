@@ -1,4 +1,4 @@
-package com.example.springLearn.dto;
+package com.example.springLearn.SpringStructure.dto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
