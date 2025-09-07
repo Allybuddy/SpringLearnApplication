@@ -3,3 +3,14 @@ It provides asynchronous communication between different components of a system.
 RabbitMO broker => exchange -> queues
 Routing key: a key that the exchange looks at when deciding how to route the message to queues.
 Binding: link exchange to queue
+
+APIs
+
+http://localhost:8080/ally/api/v1/publish?message=again%20test
+
+http://localhost:8080/ally/api/v1/publish
+{
+  "id": 100,
+  "firstName": "Allvin",
+  "lastName": "great"
+}
