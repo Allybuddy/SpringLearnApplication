@@ -4,6 +4,7 @@ RabbitMO broker => exchange -> queues
 Routing key: a key that the exchange looks at when deciding how to route the message to queues.
 Binding: link exchange to queue
 
+exchange link : http://localhost:15672/#/exchanges
 APIs
 
 http://localhost:8080/ally/api/v1/publish?message=again%20test
