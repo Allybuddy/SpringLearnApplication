@@ -13,7 +13,7 @@ public class Singleton {
 
     //to create an instance
     //synchronized is used to make it thread safe
-    public synchronized Singleton getInstance(){
+    public static synchronized Singleton getInstance(){
         if(Objects.isNull(instance)){
             instance = new Singleton();
         }
