@@ -85,7 +85,8 @@ public class Streams {
         log.info("list to map {}" ,listWords.stream().collect(Collectors.toMap(a -> a, String::length)));
 
         var word = "mississippi";                                               //Function.identity()
-        word.chars().mapToObj(x -> (char)x).collect(Collectors.groupingBy(x->x, Collectors.counting())).forEach((e,f) -> log.info(e + ":" + f));
+        word.chars().mapToObj(x -> (char)x).collect(Collectors.groupingBy(x->x, Collectors.counting()))
+                .forEach((e,f) -> log.info(e + ":" + f));
 
         /*Find all duplicate elements in a list using streams.
 👉 Hint: Use a Set inside filter() to track seen elements.*/
@@ -121,7 +122,7 @@ public class Streams {
                 new Employee(10, "Jasmine", 51000, "IT")
         );
 
-        /*log.info(" list of emp {}",employees.stream().filter( e -> e.department.equalsIgnoreCase("IT")
+        log.info(" list of emp {}",employees.stream().filter( e -> e.department.equalsIgnoreCase("IT")
                 && e.salary > 50000).map(Employee::getName).toList());
 
         log.info("avg salary : {}", employees.stream().map(Employee::getSalary).collect(Collectors.averagingDouble(x -> x)));
@@ -132,7 +133,7 @@ public class Streams {
         System.out.println();
         employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting())).forEach((a,b)-> log.info(a +":"+b));
         System.out.println();
-        employees.stream().collect(Collectors.partitioningBy(e -> e.salary > 50000)).forEach((a,b)-> log.info(a +":"+b));*/
+        employees.stream().collect(Collectors.partitioningBy(e -> e.salary > 50000)).forEach((a,b)-> log.info(a +":"+b));
 
 
     }

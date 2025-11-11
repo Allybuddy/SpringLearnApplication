@@ -63,7 +63,7 @@ class MyQueue{
     }
 }
 
-public class Queue {
+public class QueueDs {
 
     public static void main(String [] args){
 

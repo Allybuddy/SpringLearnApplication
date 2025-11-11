@@ -50,7 +50,7 @@ class MyStack{
     }
 }
 
-public class Stack {
+public class StackDs {
 
     public static void main(String [] args){
 
