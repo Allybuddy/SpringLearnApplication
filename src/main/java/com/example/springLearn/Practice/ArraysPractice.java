@@ -1,8 +1,12 @@
 package com.example.springLearn.Practice;
 
 import lombok.extern.slf4j.Slf4j;
+import org.yaml.snakeyaml.util.ArrayUtils;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -73,7 +77,7 @@ public class ArraysPractice {
         log.info("copy arr 2 array {}", IntStream.of(copyArr2).boxed().map(String::valueOf).collect(Collectors.joining(",")));
 
         int[] part = IntStream.range(0, 3).map(i -> arr[i]).toArray();
-        log.info("part array {}", IntStream.of(part).boxed().map(String::valueOf).collect(Collectors.joining(",")));
+        printArr("part array", part);
 
         Arrays.sort(arr);
         var maxDiff = arr[arrLength-1]- arr[0];
@@ -87,6 +91,18 @@ public class ArraysPractice {
         log.info("minimum difference : {}", minDiff);
         log.info("maximum difference : {}", maxDiff);
 
+
+        //Collections.sort(ArrayUtils.toObject(arr));
+
+        List<Integer> newArrBoxed = Arrays.asList(Arrays.stream(arr).boxed().toArray(Integer[]::new));
+
+        Collections.sort(newArrBoxed);
+        log.info("sorted arr : {}", newArrBoxed);
+        newArrBoxed.sort(Collections.reverseOrder());
+        //newArrBoxed.sort(Comparator.reverseOrder());
+        //Collections.sort(newArrBoxed,Collections.reverseOrder());
+        //Collections.sort(newArrBoxed, Comparator.reverseOrder());
+        log.info("reverse sorted arr : {}", newArrBoxed);
     }
 
     public static boolean isSorted(int[] arr){
@@ -96,5 +112,10 @@ public class ArraysPractice {
             }
         }
         return true;
+    }
+
+    public static void printArr(String message, int[] arr){
+        var newStr = IntStream.of(arr).boxed().map(String::valueOf).collect(Collectors.joining(","));
+        log.info("{} : {}", message, newStr);
     }
 }
