@@ -18,11 +18,7 @@ public class ArraysPractice1 {
             1. Find the largest and smallest element in an array
             2. Find the second-largest element
             3. Find the sum and average of all elements
-            4. Reverse an array
-            5. Check if the array is sorted
-            6. Count even and odd numbers in an array
-            7. Copy one array to another
-            8. Find the maximum and minimum difference between elements
+            4. Count even and odd numbers in an array
          */
 
         int [] arr = new int[5];
@@ -55,6 +51,7 @@ public class ArraysPractice1 {
         log.info("sum : {} - average : {}", sum, sum/arrLength);
         log.info("even count : {} - odd count : {}", countEven, countOdd);
 
+        //Q: Reverse an array
         int [] arrReverse = new int[5];
         for(int i=arrLength-1 ; i>=0 ; i--){
             arrReverse[arrLength-1-i] = arr[i];
@@ -64,16 +61,19 @@ public class ArraysPractice1 {
                 .map(String::valueOf)
                 .collect(Collectors.joining(",")));
 
+        //Q: Check if the array is sorted
         log.info("is array sorted : {}", isSorted(arr));
         int [] newArr = {2,6,9,1,6};
         log.info("is newArr sorted : {}", isSorted(newArr));
 
+        //Q: Copy one array to another
         var copyArr1 = Arrays.copyOf(arr,arrLength);
         var copyArr2 = Arrays.stream(arr).toArray();
 
         log.info("copy arr 1 array {}", IntStream.of(copyArr1).boxed().map(String::valueOf).collect(Collectors.joining(",")));
         log.info("copy arr 2 array {}", IntStream.of(copyArr2).boxed().map(String::valueOf).collect(Collectors.joining(",")));
 
+        //Q: Find the maximum and minimum difference between elements
         int[] part = IntStream.range(0, 3).map(i -> arr[i]).toArray();
         printArr("part array", part);
 
