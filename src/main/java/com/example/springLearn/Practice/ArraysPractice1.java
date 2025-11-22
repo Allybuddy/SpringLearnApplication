@@ -56,6 +56,7 @@ public class ArraysPractice1 {
         for(int i=arrLength-1 ; i>=0 ; i--){
             arrReverse[arrLength-1-i] = arr[i];
         }
+        log.info(Arrays.toString(arrReverse));
         log.info("reverse array {}", IntStream.of(arrReverse)
                 .boxed()
                 .map(String::valueOf)
@@ -73,10 +74,11 @@ public class ArraysPractice1 {
         log.info("copy arr 1 array {}", IntStream.of(copyArr1).boxed().map(String::valueOf).collect(Collectors.joining(",")));
         log.info("copy arr 2 array {}", IntStream.of(copyArr2).boxed().map(String::valueOf).collect(Collectors.joining(",")));
 
-        //Q: Find the maximum and minimum difference between elements
+
         int[] part = IntStream.range(0, 3).map(i -> arr[i]).toArray();
         printArr("part array", part);
 
+        //Q: Find the maximum and minimum difference between elements
         Arrays.sort(arr);
         var maxDiff = arr[arrLength-1]- arr[0];
         var minDiff = largest;
