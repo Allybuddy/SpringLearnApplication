@@ -1,4 +1,4 @@
-package com.example.springLearn.JavaFeatures.MultithreadingAndConcurrency;
+package com.example.springLearn.JavaFeatures.MultithreadingAndConcurrency.Programs;
 
 import lombok.extern.slf4j.Slf4j;
 
