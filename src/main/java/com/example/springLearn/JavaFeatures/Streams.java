@@ -122,79 +122,9 @@ public class Streams {
         log.info(Arrays.stream(listOfString.split(" ")).collect(Collectors.joining(",")));
 
 
-
-        // Create sample employee dataset
-        List<Employee> employees = Arrays.asList(
-                new Employee(1, "Alice", 75000, "IT"),
-                new Employee(2, "Bob", 48000, "HR"),
-                new Employee(3, "Charlie", 52000, "IT"),
-                new Employee(4, "David", 60000, "Finance"),
-                new Employee(5, "Evelyn", 45000, "IT"),
-                new Employee(6, "Frank", 82000, "IT"),
-                new Employee(7, "Grace", 55000, "Marketing"),
-                new Employee(8, "Hannah", 67000, "IT"),
-                new Employee(9, "Ian", 49000, "Finance"),
-                new Employee(10, "Jasmine", 51000, "IT")
-        );
-
-        log.info(" list of emp {}",employees.stream().filter( e -> e.department.equalsIgnoreCase("IT")
-                && e.salary > 50000).map(Employee::getName).toList());
-
-        log.info("avg salary : {}", employees.stream().map(Employee::getSalary).collect(Collectors.averagingDouble(x -> x)));
-
-        //employees.stream().sorted(Comparator.comparing(Employee::getName).thenComparing(Employee::getSalary)).forEach(e ->log.info(e.toString()));
-        System.out.println();
-        employees.stream().collect(Collectors.groupingBy(Employee::getDepartment)).forEach((x,y) -> log.info(y.toString()));
-        System.out.println();
-        employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting())).forEach((a,b)-> log.info(a +":"+b));
-        System.out.println();
-        employees.stream().collect(Collectors.partitioningBy(e -> e.salary > 50000)).forEach((a,b)-> {log.info(a +":"+b); System.out.println();});
-
-
     }
 
 
     
-    static class Employee {
-        private int id;
-        private String name;
-        private double salary;
-        private String department;
 
-        // Constructor
-        public Employee(int id, String name, double salary, String department) {
-            this.id = id;
-            this.name = name;
-            this.salary = salary;
-            this.department = department;
-        }
-
-        // Getters
-        public int getId() {
-            return id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public double getSalary() {
-            return salary;
-        }
-
-        public String getDepartment() {
-            return department;
-        }
-
-        // toString()
-        @Override
-        public String toString() {
-            return "Employee{" +
-                    "id=" + id +
-                    ", name='" + name + '\'' +
-                    ", salary=" + salary +
-                    ", department='" + department + '\'' +
-                    '}';
-        }
-    }
 }
