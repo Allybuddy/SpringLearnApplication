@@ -27,7 +27,7 @@ public class PrintEvenOddUsing2Threads {
 
                      }
                  }
-                 log.info("{}", number);
+                 log.info("{} : {}", Thread.currentThread().getName(), number);
                  number++;
                  notifyAll();
              }
@@ -43,7 +43,7 @@ public class PrintEvenOddUsing2Threads {
 
                      }
                  }
-                 log.info("{}", number);
+                 log.info("{} : {}", Thread.currentThread().getName(), number);
                  number++;
                  notifyAll();
              }
