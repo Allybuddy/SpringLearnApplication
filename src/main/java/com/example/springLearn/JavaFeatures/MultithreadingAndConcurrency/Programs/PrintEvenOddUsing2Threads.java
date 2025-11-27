@@ -3,7 +3,7 @@ package com.example.springLearn.JavaFeatures.MultithreadingAndConcurrency.Progra
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class PrintNumbersUsing2Threads {
+public class PrintEvenOddUsing2Threads {
 
     public static void main(String[] args) {
         PrintNos ob = new PrintNos();

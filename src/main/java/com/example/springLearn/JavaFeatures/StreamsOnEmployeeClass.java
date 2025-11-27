@@ -65,10 +65,10 @@ public class StreamsOnEmployeeClass {
 
         //The name of the highest-paid employee in each department.
         System.out.println("difficult one : " + employees2.stream()
-                .collect(Collectors.groupingBy(Employee2::getDepartment,
-                        Collectors.collectingAndThen(
-                                Collectors.maxBy(Comparator.comparingDouble( Employee2::getSalary)),
-                                emp -> emp.map(Employee2::getName).orElse(null)))));
+                .collect(Collectors.groupingBy(Employee2::getDepartment, Collectors.collectingAndThen(
+                                                                                        Collectors.maxBy(Comparator.comparingDouble( Employee2::getSalary)),
+                                                                                        emp -> emp.map(Employee2::getName).orElse(null)
+                                                                                ))));
 
         //A list of all employees sorted by age, then by name.
         employees2.stream().sorted( (a,b) -> b.age - a.age)
