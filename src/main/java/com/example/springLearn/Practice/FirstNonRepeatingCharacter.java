@@ -1,5 +1,6 @@
 package com.example.springLearn.Practice;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -9,6 +10,10 @@ public class FirstNonRepeatingCharacter {
 
         String str = "swiss";
         //output - w
+
+        Arrays.asList(str.split("")).stream().filter(s -> str.indexOf(s) == str.lastIndexOf(s)).findFirst()
+                .ifPresent(s -> System.out.println("using streams : First non-repeating character : " + s));
+
         Character result = firstNonRepeatingCharacter(str);
         if (result != null) {
             System.out.println("First non-repeating character: " + result);
