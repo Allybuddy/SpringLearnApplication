@@ -6,20 +6,26 @@ import com.example.springLearn.SpringStructure.repository.StudentRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@org.springframework.stereotype.Service
+@Service
 @RequiredArgsConstructor
 public class ServiceImpl{
 
     private final StudentRepo studentRepo;
 
     public List<StudentDto> getData() {
-        List<StudentEntity> resRepo = studentRepo.getData();
-        List<StudentDto> res = new ArrayList<>();
-        BeanUtils.copyProperties(resRepo,res);
+        List<StudentEntity> resRepo = studentRepo.findAll();
+        List<StudentDto> res = resRepo.stream()
+                .map(entity -> {
+                    StudentDto dto = new StudentDto();
+                    BeanUtils.copyProperties(entity, dto);
+                    return dto;
+                })
+                .toList();
         return res;
     }
 

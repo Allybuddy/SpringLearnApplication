@@ -8,14 +8,14 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "Student")
+@Table(name = "students", schema = "ems")
 public class StudentEntity {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "student_id")
     private int id;
     @Column(name = "age")
     private int age;
-    @Column(name = "name")
+    @Column(name = "first_name")
     private String name;
 }
