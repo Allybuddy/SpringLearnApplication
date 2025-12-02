@@ -1,9 +1,6 @@
 package com.example.springLearn.JavaFeatures;
 
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class Java8Features {
 
@@ -24,6 +21,9 @@ public class Java8Features {
             int newRes = execute.apply(randomNum);
             consume.accept(newRes);
         }
+
+        BiFunction<Integer, Integer, Integer> biFunction = (x,y) -> x+y;
+        System.out.println("Bi-Function o/p : " +  biFunction.apply(3,4));
 
 
     }
