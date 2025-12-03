@@ -43,18 +43,6 @@ public class Print1To10Using3Threads {
                     log.info("thread no {} : {}",threadNo, count);
                     count++;
                     notifyAll();
-
-                    //logic 2 similar to above
-                    /*while (count <= MAX) {
-                    while ((count - 1) % 3 != threadNo - 1) {
-                        wait();
-                        if (count > MAX)
-                            return;
-                    }
-                    log.info("thread no {} : {}",threadNo, count);
-                    count++;
-                    notifyAll();
-                }*/
                 }
             }catch (InterruptedException e) {
                 throw new RuntimeException(e);
@@ -64,6 +52,7 @@ public class Print1To10Using3Threads {
     }
 }
 
+//logic 2 similar to above
 /*
 * while (count <= MAX) {
 

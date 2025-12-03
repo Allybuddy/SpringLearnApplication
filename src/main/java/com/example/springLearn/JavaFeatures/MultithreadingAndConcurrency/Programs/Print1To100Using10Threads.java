@@ -16,11 +16,9 @@ public class Print1To100Using10Threads {
     }
 
     private static class Print{
-
         static int counter = 1;
 
         public synchronized void printNos(){
-
             while (counter <= 100){
                 var threadName = Thread.currentThread().getName();
                 log.info("{} : {}", threadName, counter);
