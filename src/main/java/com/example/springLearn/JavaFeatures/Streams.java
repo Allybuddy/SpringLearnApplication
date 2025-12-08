@@ -38,8 +38,10 @@ public class Streams {
         var res2 = list.stream().filter(n -> n%2 ==0).reduce(Integer::sum);
         log.info("sum in 2 ways - way1 {} and way2 {}", res, res2.get());
 
-        /*var reverseList = myList.stream().mapToInt(Integer::reverse);
-        log.info("reverse list : {}", reverseList);*/
+        var reverseList = IntStream.range(0, list.size())
+                                          .mapToObj(i -> list.get(list.size() - 1 - i))
+                                          .collect(Collectors.toList());
+        log.info("reverse list : {}", reverseList);
 
         //reverse a list and dont so
 
@@ -50,8 +52,13 @@ public class Streams {
         Collections.reverse(newReverseList);
         log.info("reversed list {} ", newReverseList);
 
-        var newList = lists.stream().map( stre -> new StringBuilder(stre).reverse().toString()).toList();
-        log.info("reverse characters {} ", newList);
+        String reversed = Arrays.stream(name.split(" ")).collect(Collectors.collectingAndThen(
+                        Collectors.toList(), ls -> {
+                            Collections.reverse(ls);
+                            return String.join(" ", ls);
+                        }));
+
+        log.info("solu 2 : reversed list : {} ", reversed);
 
         var ls = lists.stream()
                 .collect(Collectors.collectingAndThen(Collectors.toList(), l -> {
@@ -59,6 +66,10 @@ public class Streams {
                     return l;
                 }));
         log.info(ls.toString());
+
+        var newList = lists.stream().map( stre -> new StringBuilder(stre).reverse().toString()).toList();
+        log.info("reverse characters {} ", newList);
+
         log.info("/////////////////////////////////////////////////////////////////////////////////////////////////////");
         log.info("sum of first 10 even nos : {}", IntStream.rangeClosed(1,20).filter(x-> x%2==0).sum());
 
@@ -91,9 +102,17 @@ public class Streams {
         var listWords = List.of("Allvin", "Anand", "Mom", "Dad", "Nexon");
         log.info("list to map {}" ,listWords.stream().collect(Collectors.toMap(a -> a, String::length)));
 
+        List<String> fruits = List.of("apple", "banana", "mango", "apple");
+        fruits.stream().collect(Collectors.groupingBy(a -> a, Collectors.counting()))
+                .forEach((a, b) -> System.out.println(a + " : " + b));
+
         var word = "mississippi";                                               //Function.identity()
         word.chars().mapToObj(x -> (char)x).collect(Collectors.groupingBy(x->x, Collectors.counting()))
                 .forEach((e,f) -> log.info(e + ":" + f));
+
+        log.info("maintaining the order of the string");
+        Arrays.stream(word.split("")).collect(Collectors.groupingBy(a -> a, LinkedHashMap::new, Collectors.counting()))
+                .forEach( (a,b) -> System.out.println("key : " + a + " : " + "value : " + b));
 
         /*Find the first non-repeated character in a string using streams.
 👉           Hint: LinkedHashMap + collect() + filter(entry -> entry.getValue() == 1)*/

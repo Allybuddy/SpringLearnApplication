@@ -62,6 +62,8 @@ public class StreamsOnEmployeeClass {
 
         System.out.println("average salary per department :  " + employees2.stream()
                 .collect(Collectors.groupingBy( a -> a.getDepartment(), Collectors.averagingInt(a -> a.salary))));
+        System.out.println("average salary per department :  " + employees2.stream()
+                .collect(Collectors.groupingBy( Employee2::getDepartment, Collectors.averagingInt(Employee2::getSalary))));
 
         //The name of the highest-paid employee in each department.
         System.out.println("difficult one : " + employees2.stream()
@@ -73,6 +75,18 @@ public class StreamsOnEmployeeClass {
         //A list of all employees sorted by age, then by name.
         employees2.stream().sorted( (a,b) -> b.age - a.age)
                 .sorted((a, b) -> b.name.length() - a.name.length()).forEach( obj -> System.out.println( obj.name + " " + obj.age));
+
+        //asked in cgi
+
+        String str = "aabgsucscjiusa";
+
+        var uniqueSet = Arrays.stream(str.split("")).filter( s -> str.indexOf(s) == str.lastIndexOf(s)).toList();
+        System.out.println(uniqueSet.stream().limit(3).toList());
+
+        //Empoyee(id,name,salary,managerID)
+       /* employees.stream().collect(Collectors.groupingBy(Employees::getmanagerId), Collectors.collectingAndThen
+                ( Collectors.filtering(    emp.getsalary >  emp.stream.filter( emp -> emp.getId == managerId).map(Emp::getSalary).findfirst())  )), Collectors.toList()
+*/
     }
 
     static class Employee {
