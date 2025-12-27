@@ -1,12 +1,8 @@
 package com.example.springLearn.JavaFeatures;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.lang.reflect.Array;
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -46,6 +42,9 @@ public class Streams {
         //reverse a list and dont so
 
         String name = "Allvin is a good boy";
+
+        log.info("reversed string name : {}",Arrays.stream(name.split("")).reduce((a,b) -> b + a).get());
+        log.info("reversed string name (word order reverse): {}",Arrays.stream(name.split(" ")).reduce((a,b) -> b + " " + a).get());
         List<String> lists = Arrays.asList(name.split(" "));
 
         var newReverseList = new ArrayList<>(lists);
@@ -139,6 +138,13 @@ public class Streams {
 
         var listOfString = "allvin is a java developer";
         log.info(Arrays.stream(listOfString.split(" ")).collect(Collectors.joining(",")));
+
+        /*I/P - 92, 65, 81,39, 47, 14, 73
+        O/P - 81, 92, 73, 14, 65, 47, 39*/
+        List<Integer> inputList = List.of(92, 65, 81,39, 47, 14, 73);
+        inputList.stream().sorted((a,b) -> a%10 - b%10).toList().forEach(a-> System.out.print(a + " "));
+        System.out.println();
+        inputList.stream().sorted(Comparator.comparingInt(a -> a % 10)).toList().forEach(a-> System.out.print(a + " "));
 
 
     }
