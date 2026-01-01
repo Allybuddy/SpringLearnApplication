@@ -3,6 +3,7 @@ package com.example.springLearn.Practice.LeetCode;
 public class BestTimeToBuyAndSellStock {
 
     //https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+    //optimized approach in future
     public static int maxProfit(int[] prices) {
         int length = prices.length;
         int minNo = prices[0];
