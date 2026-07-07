@@ -1,9 +1,5 @@
 package com.example.javaSpringBootLearn.JavaFeatures;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-
 public enum EnumTest {
 
     SAMSUNG(1), POCO(2), APPLE(3), SONY(4);

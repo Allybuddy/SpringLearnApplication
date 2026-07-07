@@ -1,7 +1,6 @@
 package com.example.javaSpringBootLearn.JavaFeatures;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.logging.log4j.util.PropertySource;
 
 import java.util.Arrays;
 import java.util.Comparator;

@@ -1,9 +1,6 @@
 package com.example.javaSpringBootLearn.Practice;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class StringTokens {
 

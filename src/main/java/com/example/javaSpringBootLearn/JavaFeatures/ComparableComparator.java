@@ -1,7 +1,6 @@
 package com.example.javaSpringBootLearn.JavaFeatures;
 
 import lombok.Data;
-import org.hibernate.mapping.Collection;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -2,11 +2,7 @@ package com.example.javaSpringBootLearn.JavaFeatures;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.EnumMap;
-import java.util.EnumSet;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.example.javaSpringBootLearn.JavaFeatures.EnumTest.SAMSUNG;
