@@ -76,8 +76,6 @@ public class StreamsOnEmployeeClass {
         employees2.stream().sorted( (a,b) -> b.age - a.age)
                 .sorted((a, b) -> b.name.length() - a.name.length()).forEach( obj -> System.out.println( obj.name + " " + obj.age));
 
-        //asked in cgi
-
         String str = "aabgsucscjiusa";
 
         var uniqueSet = Arrays.stream(str.split("")).filter( s -> str.indexOf(s) == str.lastIndexOf(s)).toList();

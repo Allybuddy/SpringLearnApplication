@@ -20,6 +20,10 @@ public class Streams2 {
                 .forEach((a,b) -> System.out.print(a + " : " + b + " // "));
         System.out.println();
 
+        String strr = "jav db allvin java oracle db";
+        var map = Arrays.stream(strr.split(" ")).collect(Collectors.groupingBy(s-> s, LinkedHashMap::new, Collectors.counting()));
+        System.out.println(map.keySet().stream().filter(a -> map.get(a) > 1).findFirst().get());
+
         System.out.println(intList.stream().sorted((a,b) -> b-a).toList());
         System.out.println(intList.stream().sorted(Comparator.reverseOrder()).toList());
 

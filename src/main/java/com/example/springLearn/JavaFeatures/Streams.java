@@ -39,14 +39,14 @@ public class Streams {
                                           .collect(Collectors.toList());
         log.info("reverse list : {}", reverseList);
 
-        //reverse a list and dont so
+        //reverse a list ( alphabet and word wise )
 
         String name = "Allvin is a good boy";
 
         log.info("reversed string name : {}",Arrays.stream(name.split("")).reduce((a,b) -> b + a).get());
         log.info("reversed string name (word order reverse): {}",Arrays.stream(name.split(" ")).reduce((a,b) -> b + " " + a).get());
-        List<String> lists = Arrays.asList(name.split(" "));
 
+        List<String> lists = Arrays.asList(name.split(" "));
         var newReverseList = new ArrayList<>(lists);
         Collections.reverse(newReverseList);
         log.info("reversed list {} ", newReverseList);
@@ -91,6 +91,10 @@ public class Streams {
         log.info("distinct : {}", listInt2.stream().distinct().collect(Collectors.toList()));
         log.info("distinct : {}", listInt2.stream().collect(Collectors.toSet()));
 
+        //Find all duplicate elements in a list using streams.
+        log.info("duplicate elements in a list method : " + listInt2.stream()
+                .filter(a -> listInt2.indexOf(a) != listInt2.lastIndexOf(a)).collect(Collectors.toSet()));
+
         String str1 = "Allvin and Adarsh are good friends";
         log.info(Arrays.stream(str1.split(" ")).filter(x -> x.toLowerCase().startsWith("a")).collect(Collectors.toSet()).toString());
 
@@ -118,9 +122,6 @@ public class Streams {
         String str = "swiss";   //output - w
         Arrays.asList(str.split("")).stream().filter(s -> str.indexOf(s) == str.lastIndexOf(s)).findFirst()
                 .ifPresent(s -> System.out.println("using streams : First non-repeating character : " + s));
-
-        /*Find all duplicate elements in a list using streams.
-👉           Hint: Use a Set inside filter() to track seen elements.*/
 
         /*var word2 = "Allvin";
         word2.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))*/
