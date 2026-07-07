@@ -53,7 +53,6 @@ public class Streams2 {
         StringBuilder s2 = new StringBuilder();
         //System.out.println(Arrays.stream(s1.split(""));
 
-
         System.out.println(IntStream.rangeClosed(intArr.length, intArr.length).findFirst());
         System.out.println(Arrays.stream(intArr).skip(intArr.length-1).findFirst());
     }
