@@ -95,7 +95,7 @@ public class Streams {
         log.info("duplicate elements in a list method : " + listInt2.stream()
                 .filter(a -> listInt2.indexOf(a) != listInt2.lastIndexOf(a)).collect(Collectors.toSet()));
 
-        String str1 = "Allvin and Adarsh are good friends";
+        String str1 = "Allvin and Jesus are good friends";
         log.info(Arrays.stream(str1.split(" ")).filter(x -> x.toLowerCase().startsWith("a")).collect(Collectors.toSet()).toString());
 
         log.info("{}",Arrays.stream(str1.split(" ")).filter(x -> x.length() > 5).count());
